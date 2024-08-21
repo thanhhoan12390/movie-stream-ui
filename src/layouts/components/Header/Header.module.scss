@@ -1,0 +1,142 @@
+.wrapper {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: var(--default-layout-header-height);
+    background-color: transparent;
+    transition: background-color linear 0.3s;
+}
+
+.header-color {
+    background-color: var(--bg-color);
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    padding: 0 60px;
+}
+
+.logo-nav-group {
+    display: flex;
+}
+
+.logo {
+    margin-right: 25px;
+
+    img {
+        height: 25px;
+        vertical-align: middle;
+    }
+}
+
+.nav-group {
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+
+.nav-item {
+    margin-left: 20px;
+}
+
+.nav-link {
+    font-weight: 600;
+    color: #e5e5e5;
+
+    &:hover {
+        color: #b3b3b3;
+    }
+}
+
+.avatar-group {
+    display: flex;
+    align-items: center;
+}
+
+.bell-icon {
+    height: 22px;
+    width: 22px;
+    margin-right: 15px;
+    color: var(--white);
+    cursor: pointer;
+}
+
+.avatar {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    img {
+        height: 32px;
+        width: 32px;
+        border-radius: 4px;
+    }
+
+    &:hover .caret-icon {
+        rotate: 180deg;
+    }
+}
+
+.avatar:has(+ div .avatar-dropdown) {
+    .caret-icon {
+        rotate: 180deg;
+    }
+}
+
+.caret-icon {
+    border-color: #fff transparent transparent;
+    border-style: solid;
+    border-width: 5px 5px 0;
+    height: 0;
+    width: 0;
+    margin-left: 10px;
+    rotate: 0deg;
+    transition: rotate linear 0.25s;
+}
+
+.avatar-dropdown {
+    padding: 15px 0 10px;
+    color: #fff;
+    border: 1px solid hsla(0, 0%, 100%, 0.15);
+    background-color: rgba(0, 0, 0, 0.9);
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: -13px;
+        right: 27px;
+        border-color: transparent transparent var(--white) transparent;
+        border-style: solid;
+        border-width: 7px 7px;
+    }
+}
+
+.dropdown-list {
+    list-style: none;
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    margin-right: 44px;
+    cursor: pointer;
+
+    span {
+        font-size: 1.3rem;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.dropdown-icon {
+    color: #b3b3b3;
+    font-size: 2.2rem;
+    padding: 0 13px 0 5px;
+}
