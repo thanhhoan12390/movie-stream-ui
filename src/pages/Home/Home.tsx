@@ -6,8 +6,9 @@ import { faCircleInfo, faPlay, faRotateRight, faVolumeHigh, faVolumeXmark } from
 import styles from './Home.module.scss';
 import images from '~/assets/images';
 import videos from '~/assets/videos';
+import Carousel from '~/components/Carousel';
 
-import { bannerMovieInfo } from '~/apiFakeData/fakeData'; // fake Data
+import { bannerMovieInfo, carouselList } from '~/apiFakeData/fakeData'; // fake Data
 
 const cx = classNames.bind(styles);
 
@@ -40,6 +41,7 @@ function Home() {
     return (
         <div className={cx('wrapper')}>
             <div className={cx('container')}>
+                {/* Banner video */}
                 <div className={cx('banner-group')}>
                     <div className={cx('banner-row')}>
                         <div className={cx('banner-trailer')}>
@@ -127,7 +129,10 @@ function Home() {
                     </div>
                 </div>
 
-                <div className={cx('content')}></div>
+                {/* Content */}
+                <div className={cx('content')}>
+                    <Carousel carouselData={carouselList} title={`Today's Top Picks for You`} />
+                </div>
             </div>
         </div>
     );

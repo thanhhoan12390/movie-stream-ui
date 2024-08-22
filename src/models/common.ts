@@ -13,7 +13,7 @@ export type Genres = 'Action Anime' | 'Japanese' | 'Korean' | 'TV Comedies' | 'R
 export interface MovieInformation {
     readonly id: number;
     name: string;
-    bgImage?: any;
+    bgImage: any;
     genres: Array<Genres>;
     cast: string;
     description: string;
