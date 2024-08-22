@@ -8,6 +8,8 @@
     max-width: 100%;
     display: flex;
     width: var(--default-layout-width);
+    position: relative;
+    z-index: 0;
 }
 
 .content {

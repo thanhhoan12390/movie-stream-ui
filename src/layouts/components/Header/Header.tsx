@@ -1,14 +1,14 @@
 import classNames from 'classnames/bind';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBell, faUser, faCircleQuestion } from '@fortawesome/free-regular-svg-icons';
+import { faPencil } from '@fortawesome/free-solid-svg-icons';
 import Tippy from '@tippyjs/react/headless';
 
 import styles from './Header.module.scss';
 import config from '~/config';
 import images from '~/assets/images';
-import { useEffect, useState } from 'react';
-import { faPencil } from '@fortawesome/free-solid-svg-icons';
 
 const cx = classNames.bind(styles);
 
@@ -26,7 +26,6 @@ function Header() {
 
         window.addEventListener('scroll', handleScroll);
 
-        // Clean up function
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
