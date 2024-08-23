@@ -1,11 +1,12 @@
 import classNames from 'classnames/bind';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import styles from './Carousel.module.scss';
 import { MovieInformation } from '~/models';
+import MoviePopover from './MoviePopover';
 
 const cx = classNames.bind(styles);
 
@@ -17,8 +18,19 @@ interface CarouselProps {
 function Carousel({ carouselData, title }: CarouselProps) {
     const [disableLeftBtn, setDisableLeftBtn] = useState('');
     const [disableRightBtn, setDisableRightBtn] = useState('');
+    const [currSlide, setCurrSlide] = useState(1);
 
     const carouselRef = useRef<HTMLDivElement>(null);
+
+    const maxSlide = useMemo(() => Math.ceil(carouselData.length / 6), [carouselData.length]);
+
+    const slideArray = useMemo(() => {
+        const result: number[] = [];
+
+        for (let i = 0; i < maxSlide; i++) result.push(i + 1);
+
+        return result;
+    }, [maxSlide]);
 
     useEffect(() => {
         setDisableLeftBtn('disable-left-btn');
@@ -32,7 +44,9 @@ function Carousel({ carouselData, title }: CarouselProps) {
 
             if (carouselRef.current.scrollLeft - 1405 <= 0) {
                 setDisableLeftBtn('disable-left-btn');
+                setCurrSlide((prev) => (prev - 1 <= 1 ? 1 : prev - 1));
             } else {
+                setCurrSlide((prev) => prev - 1);
                 setDisableLeftBtn('');
             }
         }
@@ -47,7 +61,9 @@ function Carousel({ carouselData, title }: CarouselProps) {
             // 7262: max scrollLeft
             if (carouselRef.current.scrollLeft + 1405 > 7250) {
                 setDisableRightBtn('disable-right-btn');
+                setCurrSlide((prev) => (prev + 1 > maxSlide ? maxSlide : prev + 1));
             } else {
+                setCurrSlide((prev) => prev + 1);
                 setDisableRightBtn('');
             }
         }
@@ -61,11 +77,13 @@ function Carousel({ carouselData, title }: CarouselProps) {
             <div ref={carouselRef} className={cx('carousel-container')}>
                 <ul className={cx('carousel-content')}>
                     {carouselData.map((item) => (
-                        <li key={item.id} className={cx('carousel-item')}>
-                            <Link to="" className={cx('carousel-img')}>
-                                <img src={item.bgImage} alt={item.name} />
-                            </Link>
-                        </li>
+                        <MoviePopover movieInfo={item} key={item.id}>
+                            <li className={cx('carousel-item')}>
+                                <Link to="" className={cx('carousel-img')}>
+                                    <img src={item.bgImage} alt={item.name} />
+                                </Link>
+                            </li>
+                        </MoviePopover>
                     ))}
                 </ul>
 
@@ -83,6 +101,12 @@ function Carousel({ carouselData, title }: CarouselProps) {
                     <FontAwesomeIcon icon={faChevronRight} className={cx('carousel-icon')} />
                 </button>
             </div>
+
+            <ul className={cx('pagination-indicator')}>
+                {slideArray.map((slideIndex) => (
+                    <li key={slideIndex} className={slideIndex === currSlide ? cx('slide-active') : cx('')}></li>
+                ))}
+            </ul>
         </div>
     );
 }

@@ -46,7 +46,7 @@
     position: absolute;
     top: 39px;
     height: calc(100% - 44px);
-    width: 54px;
+    width: 55px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -84,4 +84,25 @@
     font-size: 2.2rem;
     display: none;
     transition: font-size ease-in-out 0.2s;
+}
+
+.pagination-indicator {
+    list-style: none;
+    position: absolute;
+    top: 14px;
+    right: 63px;
+
+    li {
+        background-color: #4d4d4d;
+        display: inline-block;
+        height: 2px;
+        margin-left: 1px;
+        width: 12px;
+        transition: background-color linear 0s 0.7s;
+    }
+
+    .slide-active {
+        background-color: #aaa;
+        transition: background-color linear 0s 0.7s;
+    }
 }

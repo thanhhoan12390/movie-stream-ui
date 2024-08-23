@@ -132,6 +132,8 @@ function Home() {
                 {/* Content */}
                 <div className={cx('content')}>
                     <Carousel carouselData={carouselList} title={`Today's Top Picks for You`} />
+                    <Carousel carouselData={carouselList} title={`New on Movie Stream`} />
+                    <Carousel carouselData={carouselList} title={`International TV Show`} />
                 </div>
             </div>
         </div>
