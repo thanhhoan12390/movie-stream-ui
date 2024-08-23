@@ -8,7 +8,7 @@ import images from '~/assets/images';
 import videos from '~/assets/videos';
 import Carousel from '~/components/Carousel';
 
-import { bannerMovieInfo, carouselList } from '~/apiFakeData/fakeData'; // fake Data
+import { bannerMovieInfo, carouselList } from '~/apiFakeData'; // fake Data
 
 const cx = classNames.bind(styles);
 

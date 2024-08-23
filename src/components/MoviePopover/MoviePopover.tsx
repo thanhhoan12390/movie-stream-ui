@@ -42,6 +42,7 @@ function MoviePopover({ movieInfo, children, onClose }: MoviePopoverProps) {
             offset={[0, -112]}
             visible
             placement="top"
+            onClickOutside={() => onClose(false)}
             render={(attrs) => (
                 <div
                     {...attrs}

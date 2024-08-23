@@ -13,10 +13,23 @@ interface CarouselCardProps {
 }
 function CarouselCard({ movieInfo }: CarouselCardProps) {
     const [isOpenModal, setIsOpenModal] = useState(false);
+    const [timeOutIdToClear, setTimeOutIdToClear] = useState<NodeJS.Timeout>();
+
+    const handleOpenModal = () => {
+        const timeOutId = setTimeout(() => {
+            setIsOpenModal(true);
+        }, 600);
+
+        setTimeOutIdToClear(timeOutId);
+    };
+
+    const handleClearTimeOut = () => {
+        clearTimeout(timeOutIdToClear);
+    };
 
     return (
         <div className={cx('wrapper')}>
-            <Link to="" className={cx('carousel-img')} onMouseEnter={() => setIsOpenModal(true)}>
+            <Link to="" className={cx('carousel-img')} onMouseEnter={handleOpenModal} onMouseLeave={handleClearTimeOut}>
                 <img src={movieInfo.bgImage} alt={movieInfo.name} />
             </Link>
 

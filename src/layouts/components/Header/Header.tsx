@@ -10,6 +10,8 @@ import styles from './Header.module.scss';
 import config from '~/config';
 import images from '~/assets/images';
 
+import { carouselList } from '~/apiFakeData'; // fake Data
+
 const cx = classNames.bind(styles);
 
 function Header() {
@@ -73,7 +75,35 @@ function Header() {
                 </div>
 
                 <div className={cx('avatar-group')}>
-                    <FontAwesomeIcon icon={faBell} className={cx('bell-icon')} />
+                    <div>
+                        <Tippy
+                            interactive
+                            offset={[-170, 28]}
+                            delay={[100, 200]}
+                            placement="bottom"
+                            render={(attrs) => (
+                                <div className={cx('notify-menu')} tabIndex={-1} {...attrs}>
+                                    <ul className={cx('notify-list')}>
+                                        {carouselList.map((item) => (
+                                            <li key={item.id} className={cx('notify-item')}>
+                                                <Link to="" className={cx('notify-link')}>
+                                                    <img src={item.bgImage} alt="img" />
+                                                </Link>
+
+                                                <div className={cx('notify-desc')}>
+                                                    <span className={cx('desc-title')}>New Arrival</span>
+                                                    <span className={cx('desc-name')}>{item.name}</span>
+                                                    <span className={cx('desc-day')}>1 week ago</span>
+                                                </div>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            )}
+                        >
+                            <FontAwesomeIcon icon={faBell} className={cx('bell-icon')} />
+                        </Tippy>
+                    </div>
 
                     <Tippy
                         interactive
