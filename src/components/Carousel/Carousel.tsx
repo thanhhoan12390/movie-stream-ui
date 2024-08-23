@@ -1,12 +1,11 @@
 import classNames from 'classnames/bind';
-import { useEffect, useMemo, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Fragment, useEffect, useMemo, useRef, useState } from 'react';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import styles from './Carousel.module.scss';
 import { MovieInformation } from '~/models';
-import MoviePopover from './MoviePopover';
+import CarouselCard from '~/components/CarouselCard';
 
 const cx = classNames.bind(styles);
 
@@ -75,17 +74,15 @@ function Carousel({ carouselData, title }: CarouselProps) {
 
             {/* Carousel container */}
             <div ref={carouselRef} className={cx('carousel-container')}>
-                <ul className={cx('carousel-content')}>
+                <div className={cx('carousel-content')}>
                     {carouselData.map((item) => (
-                        <MoviePopover movieInfo={item} key={item.id}>
-                            <li className={cx('carousel-item')}>
-                                <Link to="" className={cx('carousel-img')}>
-                                    <img src={item.bgImage} alt={item.name} />
-                                </Link>
-                            </li>
-                        </MoviePopover>
+                        <Fragment key={item.id}>
+                            <div className={cx('carousel-item')}>
+                                <CarouselCard movieInfo={item} />
+                            </div>
+                        </Fragment>
                     ))}
-                </ul>
+                </div>
 
                 <button
                     className={cx('carousel-arrow-left', 'carousel-arrow', disableLeftBtn)}
