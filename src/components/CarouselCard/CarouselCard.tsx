@@ -18,7 +18,7 @@ function CarouselCard({ movieInfo }: CarouselCardProps) {
     const handleOpenModal = () => {
         const timeOutId = setTimeout(() => {
             setIsOpenModal(true);
-        }, 600);
+        }, 700);
 
         setTimeOutIdToClear(timeOutId);
     };

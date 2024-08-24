@@ -132,6 +132,26 @@
     color: var(--white);
 }
 
+.icon-tooltip {
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 2.4rem;
+    padding: 8px 16px;
+    border-radius: 4px;
+    background-color: var(--white);
+    position: relative;
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: -17px;
+        right: 43%;
+        border-color: var(--white) transparent transparent transparent;
+        border-style: solid;
+        border-width: 9px 9px;
+    }
+}
+
 .episode-group {
     display: flex;
     align-items: center;

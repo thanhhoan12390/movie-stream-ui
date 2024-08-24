@@ -76,7 +76,7 @@
 .notify-list {
     list-style: none;
     padding: 0;
-    max-height: calc(100vh - 280px);
+    max-height: calc(100vh - 295px);
     width: 378px;
     overflow: auto;
     border-top: 2px solid var(--white);
@@ -86,6 +86,7 @@
     display: flex;
     -webkit-user-select: none;
     user-select: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
     cursor: pointer;
 
     &:hover {

@@ -20,7 +20,7 @@ function App() {
                         path={config.routes.home}
                         element={
                             <DefaultLayout>
-                                <Home></Home>
+                                <Home />
                             </DefaultLayout>
                         }
                     />
