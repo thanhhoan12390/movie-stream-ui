@@ -9,7 +9,7 @@ export const bannerMovieInfo: MovieInformation = {
     cast: 'Kotono Mitsuishi, Kenji Nojima, Misato Fukuen',
     genres: ['Action Anime', 'Anime Series', 'Japanese'],
     release: '2024',
-    episodes: 2,
+    episodes: 8,
     maturity: ['nudity', 'suggestive content', 'violence'],
 };
 
@@ -22,7 +22,7 @@ export const carouselList: Array<MovieInformation> = [
         cast: 'Kotono Mitsuishi, Kenji Nojima, Misato Fukuen',
         genres: ['Action Anime', 'Anime Series', 'Japanese'],
         release: '2024',
-        episodes: 2,
+        episodes: 8,
         maturity: ['nudity', 'suggestive content', 'violence'],
     },
     {
@@ -33,7 +33,7 @@ export const carouselList: Array<MovieInformation> = [
         cast: 'Kotono Mitsuishi, Kenji Nojima, Misato Fukuen',
         genres: ['Action Anime', 'Anime Series', 'Japanese'],
         release: '2024',
-        episodes: 2,
+        episodes: 10,
         maturity: ['nudity', 'suggestive content', 'violence'],
     },
     {
@@ -44,7 +44,7 @@ export const carouselList: Array<MovieInformation> = [
         cast: 'Kotono Mitsuishi, Kenji Nojima, Misato Fukuen',
         genres: ['Action Anime', 'Anime Series', 'Japanese'],
         release: '2024',
-        episodes: 2,
+        episodes: 9,
         maturity: ['nudity', 'suggestive content', 'violence'],
     },
     {
@@ -55,7 +55,7 @@ export const carouselList: Array<MovieInformation> = [
         cast: 'Kotono Mitsuishi, Kenji Nojima, Misato Fukuen',
         genres: ['Action Anime', 'Anime Series', 'Japanese'],
         release: '2024',
-        episodes: 2,
+        episodes: 15,
         maturity: ['nudity', 'suggestive content', 'violence'],
     },
     {
@@ -66,7 +66,7 @@ export const carouselList: Array<MovieInformation> = [
         cast: 'Kotono Mitsuishi, Kenji Nojima, Misato Fukuen',
         genres: ['Action Anime', 'Anime Series', 'Japanese'],
         release: '2024',
-        episodes: 2,
+        episodes: 10,
         maturity: ['nudity', 'suggestive content', 'violence'],
     },
     {
@@ -77,7 +77,7 @@ export const carouselList: Array<MovieInformation> = [
         cast: 'Kotono Mitsuishi, Kenji Nojima, Misato Fukuen',
         genres: ['Action Anime', 'Anime Series', 'Japanese'],
         release: '2024',
-        episodes: 2,
+        episodes: 15,
         maturity: ['nudity', 'suggestive content', 'violence'],
     },
     {
@@ -88,7 +88,7 @@ export const carouselList: Array<MovieInformation> = [
         cast: 'Kotono Mitsuishi, Kenji Nojima, Misato Fukuen',
         genres: ['Action Anime', 'Anime Series', 'Japanese'],
         release: '2024',
-        episodes: 2,
+        episodes: 10,
         maturity: ['nudity', 'suggestive content', 'violence'],
     },
     {
@@ -99,7 +99,7 @@ export const carouselList: Array<MovieInformation> = [
         cast: 'Kotono Mitsuishi, Kenji Nojima, Misato Fukuen',
         genres: ['Action Anime', 'Anime Series', 'Japanese'],
         release: '2024',
-        episodes: 2,
+        episodes: 12,
         maturity: ['nudity', 'suggestive content', 'violence'],
     },
     {
@@ -110,7 +110,7 @@ export const carouselList: Array<MovieInformation> = [
         cast: 'Kotono Mitsuishi, Kenji Nojima, Misato Fukuen',
         genres: ['Action Anime', 'Anime Series', 'Japanese'],
         release: '2024',
-        episodes: 2,
+        episodes: 11,
         maturity: ['nudity', 'suggestive content', 'violence'],
     },
     {
@@ -121,7 +121,7 @@ export const carouselList: Array<MovieInformation> = [
         cast: 'Kotono Mitsuishi, Kenji Nojima, Misato Fukuen',
         genres: ['Action Anime', 'Anime Series', 'Japanese'],
         release: '2024',
-        episodes: 2,
+        episodes: 12,
         maturity: ['nudity', 'suggestive content', 'violence'],
     },
     {
@@ -132,7 +132,7 @@ export const carouselList: Array<MovieInformation> = [
         cast: 'Kotono Mitsuishi, Kenji Nojima, Misato Fukuen',
         genres: ['Action Anime', 'Anime Series', 'Japanese'],
         release: '2024',
-        episodes: 2,
+        episodes: 8,
         maturity: ['nudity', 'suggestive content', 'violence'],
     },
     {
@@ -143,7 +143,7 @@ export const carouselList: Array<MovieInformation> = [
         cast: 'Kotono Mitsuishi, Kenji Nojima, Misato Fukuen',
         genres: ['Action Anime', 'Anime Series', 'Japanese'],
         release: '2024',
-        episodes: 2,
+        episodes: 9,
         maturity: ['nudity', 'suggestive content', 'violence'],
     },
     {
@@ -154,7 +154,7 @@ export const carouselList: Array<MovieInformation> = [
         cast: 'Kotono Mitsuishi, Kenji Nojima, Misato Fukuen',
         genres: ['Action Anime', 'Anime Series', 'Japanese'],
         release: '2024',
-        episodes: 2,
+        episodes: 10,
         maturity: ['nudity', 'suggestive content', 'violence'],
     },
     {
@@ -165,7 +165,7 @@ export const carouselList: Array<MovieInformation> = [
         cast: 'Kotono Mitsuishi, Kenji Nojima, Misato Fukuen',
         genres: ['Action Anime', 'Anime Series', 'Japanese'],
         release: '2024',
-        episodes: 2,
+        episodes: 16,
         maturity: ['nudity', 'suggestive content', 'violence'],
     },
     {
@@ -176,7 +176,7 @@ export const carouselList: Array<MovieInformation> = [
         cast: 'Kotono Mitsuishi, Kenji Nojima, Misato Fukuen',
         genres: ['Action Anime', 'Anime Series', 'Japanese'],
         release: '2024',
-        episodes: 2,
+        episodes: 12,
         maturity: ['nudity', 'suggestive content', 'violence'],
     },
     {
@@ -187,7 +187,7 @@ export const carouselList: Array<MovieInformation> = [
         cast: 'Kotono Mitsuishi, Kenji Nojima, Misato Fukuen',
         genres: ['Action Anime', 'Anime Series', 'Japanese'],
         release: '2024',
-        episodes: 2,
+        episodes: 10,
         maturity: ['nudity', 'suggestive content', 'violence'],
     },
     {
@@ -198,7 +198,7 @@ export const carouselList: Array<MovieInformation> = [
         cast: 'Kotono Mitsuishi, Kenji Nojima, Misato Fukuen',
         genres: ['Action Anime', 'Anime Series', 'Japanese'],
         release: '2024',
-        episodes: 2,
+        episodes: 14,
         maturity: ['nudity', 'suggestive content', 'violence'],
     },
     {
@@ -209,7 +209,7 @@ export const carouselList: Array<MovieInformation> = [
         cast: 'Kotono Mitsuishi, Kenji Nojima, Misato Fukuen',
         genres: ['Action Anime', 'Anime Series', 'Japanese'],
         release: '2024',
-        episodes: 2,
+        episodes: 12,
         maturity: ['nudity', 'suggestive content', 'violence'],
     },
     {
@@ -220,7 +220,7 @@ export const carouselList: Array<MovieInformation> = [
         cast: 'Kotono Mitsuishi, Kenji Nojima, Misato Fukuen',
         genres: ['Action Anime', 'Anime Series', 'Japanese'],
         release: '2024',
-        episodes: 2,
+        episodes: 12,
         maturity: ['nudity', 'suggestive content', 'violence'],
     },
     {
@@ -231,7 +231,7 @@ export const carouselList: Array<MovieInformation> = [
         cast: 'Kotono Mitsuishi, Kenji Nojima, Misato Fukuen',
         genres: ['Action Anime', 'Anime Series', 'Japanese'],
         release: '2024',
-        episodes: 2,
+        episodes: 14,
         maturity: ['nudity', 'suggestive content', 'violence'],
     },
     {
@@ -242,7 +242,7 @@ export const carouselList: Array<MovieInformation> = [
         cast: 'Kotono Mitsuishi, Kenji Nojima, Misato Fukuen',
         genres: ['Action Anime', 'Anime Series', 'Japanese'],
         release: '2024',
-        episodes: 2,
+        episodes: 8,
         maturity: ['nudity', 'suggestive content', 'violence'],
     },
     {
@@ -253,7 +253,7 @@ export const carouselList: Array<MovieInformation> = [
         cast: 'Kotono Mitsuishi, Kenji Nojima, Misato Fukuen',
         genres: ['Action Anime', 'Anime Series', 'Japanese'],
         release: '2024',
-        episodes: 2,
+        episodes: 8,
         maturity: ['nudity', 'suggestive content', 'violence'],
     },
     {
@@ -264,7 +264,7 @@ export const carouselList: Array<MovieInformation> = [
         cast: 'Kotono Mitsuishi, Kenji Nojima, Misato Fukuen',
         genres: ['Action Anime', 'Anime Series', 'Japanese'],
         release: '2024',
-        episodes: 2,
+        episodes: 9,
         maturity: ['nudity', 'suggestive content', 'violence'],
     },
     {
@@ -275,7 +275,7 @@ export const carouselList: Array<MovieInformation> = [
         cast: 'Kotono Mitsuishi, Kenji Nojima, Misato Fukuen',
         genres: ['Action Anime', 'Anime Series', 'Japanese'],
         release: '2024',
-        episodes: 2,
+        episodes: 9,
         maturity: ['nudity', 'suggestive content', 'violence'],
     },
     {
@@ -286,7 +286,7 @@ export const carouselList: Array<MovieInformation> = [
         cast: 'Kotono Mitsuishi, Kenji Nojima, Misato Fukuen',
         genres: ['Action Anime', 'Anime Series', 'Japanese'],
         release: '2024',
-        episodes: 2,
+        episodes: 10,
         maturity: ['nudity', 'suggestive content', 'violence'],
     },
     {
@@ -297,7 +297,7 @@ export const carouselList: Array<MovieInformation> = [
         cast: 'Kotono Mitsuishi, Kenji Nojima, Misato Fukuen',
         genres: ['Action Anime', 'Anime Series', 'Japanese'],
         release: '2024',
-        episodes: 2,
+        episodes: 10,
         maturity: ['nudity', 'suggestive content', 'violence'],
     },
     {
@@ -308,7 +308,7 @@ export const carouselList: Array<MovieInformation> = [
         cast: 'Kotono Mitsuishi, Kenji Nojima, Misato Fukuen',
         genres: ['Action Anime', 'Anime Series', 'Japanese'],
         release: '2024',
-        episodes: 2,
+        episodes: 12,
         maturity: ['nudity', 'suggestive content', 'violence'],
     },
     {
@@ -319,7 +319,7 @@ export const carouselList: Array<MovieInformation> = [
         cast: 'Kotono Mitsuishi, Kenji Nojima, Misato Fukuen',
         genres: ['Action Anime', 'Anime Series', 'Japanese'],
         release: '2024',
-        episodes: 2,
+        episodes: 16,
         maturity: ['nudity', 'suggestive content', 'violence'],
     },
     {
@@ -330,7 +330,7 @@ export const carouselList: Array<MovieInformation> = [
         cast: 'Kotono Mitsuishi, Kenji Nojima, Misato Fukuen',
         genres: ['Action Anime', 'Anime Series', 'Japanese'],
         release: '2024',
-        episodes: 2,
+        episodes: 15,
         maturity: ['nudity', 'suggestive content', 'violence'],
     },
     {
@@ -341,7 +341,7 @@ export const carouselList: Array<MovieInformation> = [
         cast: 'Kotono Mitsuishi, Kenji Nojima, Misato Fukuen',
         genres: ['Action Anime', 'Anime Series', 'Japanese'],
         release: '2024',
-        episodes: 2,
+        episodes: 8,
         maturity: ['nudity', 'suggestive content', 'violence'],
     },
     {
@@ -352,7 +352,7 @@ export const carouselList: Array<MovieInformation> = [
         cast: 'Kotono Mitsuishi, Kenji Nojima, Misato Fukuen',
         genres: ['Action Anime', 'Anime Series', 'Japanese'],
         release: '2024',
-        episodes: 2,
+        episodes: 14,
         maturity: ['nudity', 'suggestive content', 'violence'],
     },
     {
@@ -363,7 +363,7 @@ export const carouselList: Array<MovieInformation> = [
         cast: 'Kotono Mitsuishi, Kenji Nojima, Misato Fukuen',
         genres: ['Action Anime', 'Anime Series', 'Japanese'],
         release: '2024',
-        episodes: 2,
+        episodes: 10,
         maturity: ['nudity', 'suggestive content', 'violence'],
     },
     {
@@ -374,7 +374,7 @@ export const carouselList: Array<MovieInformation> = [
         cast: 'Kotono Mitsuishi, Kenji Nojima, Misato Fukuen',
         genres: ['Action Anime', 'Anime Series', 'Japanese'],
         release: '2024',
-        episodes: 2,
+        episodes: 9,
         maturity: ['nudity', 'suggestive content', 'violence'],
     },
     {
@@ -385,7 +385,7 @@ export const carouselList: Array<MovieInformation> = [
         cast: 'Kotono Mitsuishi, Kenji Nojima, Misato Fukuen',
         genres: ['Action Anime', 'Anime Series', 'Japanese'],
         release: '2024',
-        episodes: 2,
+        episodes: 8,
         maturity: ['nudity', 'suggestive content', 'violence'],
     },
     {
@@ -396,7 +396,7 @@ export const carouselList: Array<MovieInformation> = [
         cast: 'Kotono Mitsuishi, Kenji Nojima, Misato Fukuen',
         genres: ['Action Anime', 'Anime Series', 'Japanese'],
         release: '2024',
-        episodes: 2,
+        episodes: 8,
         maturity: ['nudity', 'suggestive content', 'violence'],
     },
     {
@@ -407,7 +407,7 @@ export const carouselList: Array<MovieInformation> = [
         cast: 'Kotono Mitsuishi, Kenji Nojima, Misato Fukuen',
         genres: ['Action Anime', 'Anime Series', 'Japanese'],
         release: '2024',
-        episodes: 2,
+        episodes: 8,
         maturity: ['nudity', 'suggestive content', 'violence'],
     },
     {
@@ -418,7 +418,76 @@ export const carouselList: Array<MovieInformation> = [
         cast: 'Kotono Mitsuishi, Kenji Nojima, Misato Fukuen',
         genres: ['Action Anime', 'Anime Series', 'Japanese'],
         release: '2024',
-        episodes: 2,
+        episodes: 20,
+        maturity: ['nudity', 'suggestive content', 'violence'],
+    },
+];
+
+export const moreLikeList: Array<MovieInformation> = [
+    {
+        id: 39,
+        name: 'One Piece',
+        bgImage: images.moreLikeThisImg1,
+        description: `A new adventure begins for Luffy and his crew when mysterious pop superstar Uta unveils her identity — and launches a misguided plan for world peace.`,
+        cast: 'Kotono Mitsuishi, Kenji Nojima, Misato Fukuen',
+        genres: ['Action Anime', 'Anime Series', 'Japanese'],
+        release: '2024',
+        episodes: 20,
+        maturity: ['nudity', 'suggestive content', 'violence'],
+    },
+    {
+        id: 40,
+        name: 'One Piece',
+        bgImage: images.moreLikeThisImg2,
+        description: `A new adventure begins for Luffy and his crew when mysterious pop superstar Uta unveils her identity — and launches a misguided plan for world peace.`,
+        cast: 'Kotono Mitsuishi, Kenji Nojima, Misato Fukuen',
+        genres: ['Action Anime', 'Anime Series', 'Japanese'],
+        release: '2024',
+        episodes: 20,
+        maturity: ['nudity', 'suggestive content', 'violence'],
+    },
+    {
+        id: 41,
+        name: 'One Piece',
+        bgImage: images.moreLikeThisImg3,
+        description: `A new adventure begins for Luffy and his crew when mysterious pop superstar Uta unveils her identity — and launches a misguided plan for world peace.`,
+        cast: 'Kotono Mitsuishi, Kenji Nojima, Misato Fukuen',
+        genres: ['Action Anime', 'Anime Series', 'Japanese'],
+        release: '2024',
+        episodes: 20,
+        maturity: ['nudity', 'suggestive content', 'violence'],
+    },
+    {
+        id: 42,
+        name: 'One Piece',
+        bgImage: images.moreLikeThisImg4,
+        description: `A new adventure begins for Luffy and his crew when mysterious pop superstar Uta unveils her identity — and launches a misguided plan for world peace.`,
+        cast: 'Kotono Mitsuishi, Kenji Nojima, Misato Fukuen',
+        genres: ['Action Anime', 'Anime Series', 'Japanese'],
+        release: '2024',
+        episodes: 20,
+        maturity: ['nudity', 'suggestive content', 'violence'],
+    },
+    {
+        id: 43,
+        name: 'One Piece',
+        bgImage: images.moreLikeThisImg5,
+        description: `A new adventure begins for Luffy and his crew when mysterious pop superstar Uta unveils her identity — and launches a misguided plan for world peace.`,
+        cast: 'Kotono Mitsuishi, Kenji Nojima, Misato Fukuen',
+        genres: ['Action Anime', 'Anime Series', 'Japanese'],
+        release: '2024',
+        episodes: 20,
+        maturity: ['nudity', 'suggestive content', 'violence'],
+    },
+    {
+        id: 44,
+        name: 'One Piece',
+        bgImage: images.moreLikeThisImg6,
+        description: `A new adventure begins for Luffy and his crew when mysterious pop superstar Uta unveils her identity — and launches a misguided plan for world peace.`,
+        cast: 'Kotono Mitsuishi, Kenji Nojima, Misato Fukuen',
+        genres: ['Action Anime', 'Anime Series', 'Japanese'],
+        release: '2024',
+        episodes: 20,
         maturity: ['nudity', 'suggestive content', 'violence'],
     },
 ];

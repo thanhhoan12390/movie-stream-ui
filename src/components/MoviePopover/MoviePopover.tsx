@@ -5,10 +5,12 @@ import { faThumbsUp } from '@fortawesome/free-regular-svg-icons';
 import { faChevronDown, faPlay, faPlus, faVolumeHigh, faVolumeXmark } from '@fortawesome/free-solid-svg-icons';
 import TippyHeadless from '@tippyjs/react/headless';
 import Tippy from '@tippyjs/react';
+import { useAppDispatch } from '~/app/hooks';
 
 import styles from './MoviePopover.module.scss';
 import { MovieInformation } from '~/models';
 import videos from '~/assets/videos';
+import { setViewId } from '~/pages/Home/homeSlice';
 
 const cx = classNames.bind(styles);
 
@@ -23,6 +25,8 @@ function MoviePopover({ movieInfo, children, onClose }: MoviePopoverProps) {
     const [isBannerVisible, setIsBannerVisible] = useState(true);
     const [isMutedAudio, setIsMutedAudio] = useState(true);
 
+    const dispatch = useAppDispatch();
+
     useEffect(() => {
         const timeOutId = setTimeout(() => {
             setIsBannerVisible(false);
@@ -35,6 +39,10 @@ function MoviePopover({ movieInfo, children, onClose }: MoviePopoverProps) {
 
     const handleBannerVideoEnd = () => {
         setIsBannerVisible(true);
+    };
+
+    const handleViewInfoBtn = () => {
+        dispatch(setViewId(movieInfo.id));
     };
 
     return (
@@ -98,9 +106,10 @@ function MoviePopover({ movieInfo, children, onClose }: MoviePopoverProps) {
                             </button>
                         )}
                     </div>
-                    <div className={cx('movie-info')}>
+
+                    <div className={cx('movie-info')} onClick={handleViewInfoBtn}>
                         <div className={cx('button-group')}>
-                            <button className={cx('button-wrapper')}>
+                            <button className={cx('button-wrapper')} onClick={(e) => e.stopPropagation()}>
                                 <FontAwesomeIcon icon={faPlay} className={cx('play-icon')} />
                             </button>
 
@@ -108,13 +117,13 @@ function MoviePopover({ movieInfo, children, onClose }: MoviePopoverProps) {
                                 offset={[-1, 24]}
                                 content={<span className={cx('icon-tooltip')}>Add to My List</span>}
                             >
-                                <button className={cx('button-wrapper')}>
+                                <button className={cx('button-wrapper')} onClick={(e) => e.stopPropagation()}>
                                     <FontAwesomeIcon icon={faPlus} className={cx('plus-icon')} />
                                 </button>
                             </Tippy>
 
                             <Tippy offset={[1, 24]} content={<span className={cx('icon-tooltip')}>I like this</span>}>
-                                <button className={cx('button-wrapper')}>
+                                <button className={cx('button-wrapper')} onClick={(e) => e.stopPropagation()}>
                                     <FontAwesomeIcon icon={faThumbsUp} className={cx('like-icon')} />
                                 </button>
                             </Tippy>
@@ -123,7 +132,7 @@ function MoviePopover({ movieInfo, children, onClose }: MoviePopoverProps) {
                                 offset={[-1, 24]}
                                 content={<span className={cx('icon-tooltip')}>Episodes & Info</span>}
                             >
-                                <button className={cx('button-wrapper')}>
+                                <button className={cx('button-wrapper')} onClick={handleViewInfoBtn}>
                                     <FontAwesomeIcon icon={faChevronDown} className={cx('down-icon')} />
                                 </button>
                             </Tippy>

@@ -1,4 +1,5 @@
 import './GlobalStyles.scss';
+import '~/assets/css/grid.css';
 
 interface GlobalStylesProps {
     children: JSX.Element;

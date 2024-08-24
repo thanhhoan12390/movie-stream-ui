@@ -42,6 +42,14 @@ const images = {
     carouselImg35: require('~/assets/images/carouselImg/carousel-img-35.jpg'),
     carouselImg36: require('~/assets/images/carouselImg/carousel-img-36.webp'),
     carouselImg37: require('~/assets/images/carouselImg/carousel-img-37.jpg'),
+
+    // More like this image
+    moreLikeThisImg1: require('~/assets/images/moreLikeThisImg/more-like-this-img-1.webp'),
+    moreLikeThisImg2: require('~/assets/images/moreLikeThisImg/more-like-this-img-2.webp'),
+    moreLikeThisImg3: require('~/assets/images/moreLikeThisImg/more-like-this-img-3.webp'),
+    moreLikeThisImg4: require('~/assets/images/moreLikeThisImg/more-like-this-img-4.webp'),
+    moreLikeThisImg5: require('~/assets/images/moreLikeThisImg/more-like-this-img-5.webp'),
+    moreLikeThisImg6: require('~/assets/images/moreLikeThisImg/more-like-this-img-6.webp'),
 };
 
 export default images;
