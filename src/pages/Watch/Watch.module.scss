@@ -84,6 +84,15 @@ video::-webkit-media-controls {
     background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.3) 0, transparent);
 }
 
+.movie-name {
+    position: absolute;
+    top: 48%;
+    left: 44%;
+    font-size: 2.8rem;
+    font-weight: 600;
+    color: var(--white);
+}
+
 // Timeline
 .time-control {
     display: flex;

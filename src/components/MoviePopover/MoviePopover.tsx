@@ -6,6 +6,7 @@ import { faChevronDown, faPlay, faPlus, faVolumeHigh, faVolumeXmark } from '@for
 import TippyHeadless from '@tippyjs/react/headless';
 import Tippy from '@tippyjs/react';
 import { useAppDispatch } from '~/app/hooks';
+import { useNavigate } from 'react-router-dom';
 
 import styles from './MoviePopover.module.scss';
 import { MovieInformation } from '~/models';
@@ -26,6 +27,8 @@ function MoviePopover({ movieInfo, children, onClose }: MoviePopoverProps) {
     const [isMutedAudio, setIsMutedAudio] = useState(true);
 
     const dispatch = useAppDispatch();
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         const timeOutId = setTimeout(() => {
@@ -77,7 +80,7 @@ function MoviePopover({ movieInfo, children, onClose }: MoviePopoverProps) {
                                     className={cx('background-video')}
                                     onEnded={handleBannerVideoEnd}
                                 >
-                                    <source src={videos.movieTrailer} type="video/mp4" />
+                                    <source src={videos.onePieceTrailer} type="video/mp4" />
                                 </video>
                             )}
                         </div>
@@ -109,7 +112,13 @@ function MoviePopover({ movieInfo, children, onClose }: MoviePopoverProps) {
 
                     <div className={cx('movie-info')} onClick={handleViewInfoBtn}>
                         <div className={cx('button-group')}>
-                            <button className={cx('button-wrapper')} onClick={(e) => e.stopPropagation()}>
+                            <button
+                                className={cx('button-wrapper')}
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    navigate(`/watch/${movieInfo.id}`);
+                                }}
+                            >
                                 <FontAwesomeIcon icon={faPlay} className={cx('play-icon')} />
                             </button>
 

@@ -1,6 +1,6 @@
 import classNames from 'classnames/bind';
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBell, faUser, faCircleQuestion } from '@fortawesome/free-regular-svg-icons';
 import { faPencil } from '@fortawesome/free-solid-svg-icons';
@@ -16,6 +16,8 @@ const cx = classNames.bind(styles);
 
 function Header() {
     const [headerBgColorClass, setHeaderBgColorClass] = useState('');
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -85,7 +87,11 @@ function Header() {
                                 <div className={cx('notify-menu')} tabIndex={-1} {...attrs}>
                                     <ul className={cx('notify-list')}>
                                         {carouselList.map((item) => (
-                                            <li key={item.id} className={cx('notify-item')}>
+                                            <li
+                                                key={item.id}
+                                                className={cx('notify-item')}
+                                                onClick={() => navigate(`/watch/${item.id}`)}
+                                            >
                                                 <Link to="" className={cx('notify-link')}>
                                                     <img src={item.bgImage} alt="img" />
                                                 </Link>

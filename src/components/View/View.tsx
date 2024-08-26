@@ -13,6 +13,7 @@ import {
 import { faThumbsUp } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Tippy from '@tippyjs/react';
+import { useNavigate } from 'react-router-dom';
 
 import styles from './View.module.scss';
 import { removeViewId } from '~/pages/Home/homeSlice';
@@ -29,6 +30,8 @@ function View() {
     const [episodeListMaxHeight, setEpisodeListMaxHeight] = useState(false);
 
     const dispatch = useAppDispatch();
+
+    const navigate = useNavigate();
 
     const viewId = useAppSelector(viewIdSelector);
 
@@ -81,7 +84,7 @@ function View() {
                                     className={cx('background-video')}
                                     onEnded={handleBannerVideoEnd}
                                 >
-                                    <source src={videos.movieTrailer} type="video/mp4" />
+                                    <source src={videos.onePieceTrailer} type="video/mp4" />
                                 </video>
                             )}
                         </div>
@@ -91,7 +94,7 @@ function View() {
                                 <FontAwesomeIcon icon={faXmark} className={cx('close-icon')} />
                             </button>
 
-                            <button className={cx('info-play-btn')}>
+                            <button className={cx('info-play-btn')} onClick={() => navigate(`/watch/${movieInfo?.id}`)}>
                                 <FontAwesomeIcon icon={faPlay} className={cx('play-btn-icon')} />
                                 <span>Play</span>
                             </button>
@@ -179,7 +182,11 @@ function View() {
                                 style={episodeListMaxHeight ? { maxHeight: 'unset' } : {}}
                             >
                                 {episodeList.map((episodeNum, index) => (
-                                    <div key={index} className={cx('episode-item')}>
+                                    <div
+                                        key={index}
+                                        className={cx('episode-item')}
+                                        onClick={() => navigate(`/watch/${movieInfo?.id}`)}
+                                    >
                                         <div className={cx('episode-img')}>
                                             <img src={movieInfo?.bgImage} alt="img" />
 
@@ -227,7 +234,10 @@ function View() {
                                     {moreLikeList.map((movie) => (
                                         <div key={movie.id} className="col l-4 m-6 c-12">
                                             <div className={cx('like-this-item')}>
-                                                <div className={cx('more-image')}>
+                                                <div
+                                                    className={cx('more-image')}
+                                                    onClick={() => navigate(`/watch/${movie.id}`)}
+                                                >
                                                     <img src={movie.bgImage} alt="img" />
 
                                                     <button className={cx('more-play-btn')}>
@@ -238,7 +248,10 @@ function View() {
                                                     </button>
                                                 </div>
 
-                                                <div className={cx('info-group')}>
+                                                <div
+                                                    className={cx('info-group')}
+                                                    onClick={() => navigate(`/watch/${movie.id}`)}
+                                                >
                                                     <div className={cx('maturity-resolution')}>
                                                         <span className={cx('more-maturity')}>T16</span>
                                                         <span className={cx('more-resolution')}>HD</span>
@@ -254,7 +267,10 @@ function View() {
                                                             </span>
                                                         }
                                                     >
-                                                        <button className={cx('more-button-wrapper')}>
+                                                        <button
+                                                            className={cx('more-button-wrapper')}
+                                                            onClick={(e) => e.stopPropagation()}
+                                                        >
                                                             <FontAwesomeIcon
                                                                 icon={faPlus}
                                                                 className={cx('more-plus-icon')}

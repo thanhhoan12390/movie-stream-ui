@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleInfo, faPlay, faRotateRight, faVolumeHigh, faVolumeXmark } from '@fortawesome/free-solid-svg-icons';
 import { useAppDispatch } from '~/app/hooks';
+import { useNavigate } from 'react-router-dom';
 
 import styles from './Home.module.scss';
 import images from '~/assets/images';
@@ -20,6 +21,8 @@ function Home() {
     const [isMutedAudio, setIsMutedAudio] = useState(true);
 
     const dispatch = useAppDispatch();
+
+    const navigate = useNavigate();
 
     const handleBannerVideoEnd = () => {
         setIsBannerVisible(true);
@@ -85,7 +88,10 @@ function Home() {
                                     <div className={cx('info-desc')}>{bannerMovieInfo.description}</div>
 
                                     <div className={cx('info-btn-group')}>
-                                        <button className={cx('info-play-btn')}>
+                                        <button
+                                            className={cx('info-play-btn')}
+                                            onClick={() => navigate(`/watch/${bannerMovieInfo.id}`)}
+                                        >
                                             <FontAwesomeIcon icon={faPlay} className={cx('play-btn-icon')} />
                                             <span>Play</span>
                                         </button>

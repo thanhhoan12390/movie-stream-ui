@@ -16,12 +16,14 @@ import {
     faVolumeXmark,
 } from '@fortawesome/free-solid-svg-icons';
 import { faClock } from '@fortawesome/free-regular-svg-icons';
+import { Link, useParams } from 'react-router-dom';
 
 import styles from './Watch.module.scss';
 import videos from '~/assets/videos';
 import images from '~/assets/images';
-import { Link } from 'react-router-dom';
 import config from '~/config';
+
+import { moviesData } from '~/apiFakeData'; // fake data
 
 const cx = classNames.bind(styles);
 
@@ -41,6 +43,14 @@ function Watch() {
     const videoRef = useRef<HTMLVideoElement>(null);
     const videoWrapperRef = useRef<HTMLDivElement>(null);
     const timelineRef = useRef<HTMLDivElement>(null);
+
+    const { movieId } = useParams();
+
+    const movieInfo = useMemo(() => {
+        if (movieId) {
+            return moviesData.find((movie) => +movieId === movie.id);
+        }
+    }, [movieId]);
 
     const togglePlay = useCallback(() => {
         if (videoRef.current?.paused) {
@@ -249,6 +259,8 @@ function Watch() {
 
                 {isHidePreWatchImage && (
                     <div className={cx('movie-control')}>
+                        <h2 className={cx('movie-name')}>{movieInfo?.name} Movie</h2>
+
                         {/* Timeline control */}
                         <div className={cx('time-control')}>
                             <div
