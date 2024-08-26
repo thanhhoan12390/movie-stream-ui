@@ -2,6 +2,7 @@ import classNames from 'classnames/bind';
 import { useAppDispatch, useAppSelector } from '~/app/hooks';
 import { useMemo, useEffect, useState, Fragment } from 'react';
 import {
+    faCheck,
     faChevronDown,
     faChevronUp,
     faPlay,
@@ -9,6 +10,7 @@ import {
     faVolumeHigh,
     faVolumeXmark,
     faXmark,
+    faThumbsUp as solidFaThumbsUp,
 } from '@fortawesome/free-solid-svg-icons';
 import { faThumbsUp } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -21,6 +23,16 @@ import { viewIdSelector } from '~/pages/Home/homeSlice';
 import videos from '~/assets/videos';
 
 import { moviesData, moreLikeList } from '~/apiFakeData'; // fake data
+import {
+    addToLikedList,
+    addToMyList,
+    deleteFromLikedList,
+    deleteFromMyList,
+    getLikedList,
+    getMyList,
+    likedListSelector,
+    myListSelector,
+} from '~/pages/MyList/myListSlice';
 
 const cx = classNames.bind(styles);
 
@@ -34,8 +46,21 @@ function View() {
     const navigate = useNavigate();
 
     const viewId = useAppSelector(viewIdSelector);
+    const myList = useAppSelector(myListSelector);
+    const likedList = useAppSelector(likedListSelector);
 
     const movieInfo = useMemo(() => moviesData.find((movie) => movie.id === viewId), [viewId]);
+    const isInMyList = useMemo(() => {
+        if (movieInfo) {
+            return myList.includes(movieInfo.id);
+        } else return false;
+    }, [movieInfo, myList]);
+
+    const isInLikedList = useMemo(() => {
+        if (movieInfo) {
+            return likedList.includes(movieInfo.id);
+        } else return false;
+    }, [movieInfo, likedList]);
 
     const episodeList = useMemo(() => {
         if (!!movieInfo?.episodes) {
@@ -65,6 +90,11 @@ function View() {
             clearTimeout(timeOutId);
         };
     }, []);
+
+    useEffect(() => {
+        dispatch(getMyList());
+        dispatch(getLikedList());
+    }, [dispatch]);
 
     return (
         <div className={cx('wrapper')} onClick={handleRemoveViewId}>
@@ -99,13 +129,57 @@ function View() {
                                 <span>Play</span>
                             </button>
 
-                            <button className={cx('plus-button')}>
-                                <FontAwesomeIcon icon={faPlus} className={cx('plus-icon')} />
-                            </button>
+                            {!isInMyList && (
+                                <button
+                                    className={cx('plus-button')}
+                                    onClick={() => {
+                                        if (movieInfo?.id) {
+                                            dispatch(addToMyList(movieInfo.id));
+                                        }
+                                    }}
+                                >
+                                    <FontAwesomeIcon icon={faPlus} className={cx('plus-icon')} />
+                                </button>
+                            )}
 
-                            <button className={cx('like-button')}>
-                                <FontAwesomeIcon icon={faThumbsUp} className={cx('like-icon')} />
-                            </button>
+                            {isInMyList && (
+                                <button
+                                    className={cx('plus-button')}
+                                    onClick={() => {
+                                        if (movieInfo?.id) {
+                                            dispatch(deleteFromMyList(movieInfo.id));
+                                        }
+                                    }}
+                                >
+                                    <FontAwesomeIcon icon={faCheck} className={cx('plus-icon')} />
+                                </button>
+                            )}
+
+                            {!isInLikedList && (
+                                <button
+                                    className={cx('like-button')}
+                                    onClick={() => {
+                                        if (movieInfo?.id) {
+                                            dispatch(addToLikedList(movieInfo.id));
+                                        }
+                                    }}
+                                >
+                                    <FontAwesomeIcon icon={faThumbsUp} className={cx('like-icon')} />
+                                </button>
+                            )}
+
+                            {isInLikedList && (
+                                <button
+                                    className={cx('like-button')}
+                                    onClick={() => {
+                                        if (movieInfo?.id) {
+                                            dispatch(deleteFromLikedList(movieInfo.id));
+                                        }
+                                    }}
+                                >
+                                    <FontAwesomeIcon icon={solidFaThumbsUp} className={cx('like-icon')} />
+                                </button>
+                            )}
 
                             {!isBannerVisible && !isMutedAudio && (
                                 <button
@@ -259,24 +333,53 @@ function View() {
                                                     </div>
                                                     <span className={cx('more-desc')}>{movie.description}</span>
 
-                                                    <Tippy
-                                                        offset={[-1, 20]}
-                                                        content={
-                                                            <span className={cx('more-icon-tooltip')}>
-                                                                Add to My List
-                                                            </span>
-                                                        }
-                                                    >
-                                                        <button
-                                                            className={cx('more-button-wrapper')}
-                                                            onClick={(e) => e.stopPropagation()}
+                                                    {!myList.includes(movie.id) && (
+                                                        <Tippy
+                                                            offset={[-1, 20]}
+                                                            content={
+                                                                <span className={cx('more-icon-tooltip')}>
+                                                                    Add to My List
+                                                                </span>
+                                                            }
                                                         >
-                                                            <FontAwesomeIcon
-                                                                icon={faPlus}
-                                                                className={cx('more-plus-icon')}
-                                                            />
-                                                        </button>
-                                                    </Tippy>
+                                                            <button
+                                                                className={cx('more-button-wrapper')}
+                                                                onClick={(e) => {
+                                                                    e.stopPropagation();
+                                                                    dispatch(addToMyList(movie.id));
+                                                                }}
+                                                            >
+                                                                <FontAwesomeIcon
+                                                                    icon={faPlus}
+                                                                    className={cx('more-plus-icon')}
+                                                                />
+                                                            </button>
+                                                        </Tippy>
+                                                    )}
+
+                                                    {myList.includes(movie.id) && (
+                                                        <Tippy
+                                                            offset={[-1, 20]}
+                                                            content={
+                                                                <span className={cx('more-icon-tooltip')}>
+                                                                    Remove from My List
+                                                                </span>
+                                                            }
+                                                        >
+                                                            <button
+                                                                className={cx('more-button-wrapper')}
+                                                                onClick={(e) => {
+                                                                    e.stopPropagation();
+                                                                    dispatch(deleteFromMyList(movie.id));
+                                                                }}
+                                                            >
+                                                                <FontAwesomeIcon
+                                                                    icon={faCheck}
+                                                                    className={cx('more-plus-icon')}
+                                                                />
+                                                            </button>
+                                                        </Tippy>
+                                                    )}
                                                 </div>
                                             </div>
                                         </div>

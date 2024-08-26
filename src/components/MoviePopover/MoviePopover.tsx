@@ -2,16 +2,34 @@ import classNames from 'classnames/bind';
 import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faThumbsUp } from '@fortawesome/free-regular-svg-icons';
-import { faChevronDown, faPlay, faPlus, faVolumeHigh, faVolumeXmark } from '@fortawesome/free-solid-svg-icons';
+import {
+    faCheck,
+    faChevronDown,
+    faPlay,
+    faPlus,
+    faVolumeHigh,
+    faVolumeXmark,
+    faThumbsUp as solidFaThumbsUp,
+} from '@fortawesome/free-solid-svg-icons';
 import TippyHeadless from '@tippyjs/react/headless';
 import Tippy from '@tippyjs/react';
-import { useAppDispatch } from '~/app/hooks';
+import { useAppDispatch, useAppSelector } from '~/app/hooks';
 import { useNavigate } from 'react-router-dom';
 
 import styles from './MoviePopover.module.scss';
 import { MovieInformation } from '~/models';
 import videos from '~/assets/videos';
 import { setViewId } from '~/pages/Home/homeSlice';
+import {
+    addToMyList,
+    getMyList,
+    myListSelector,
+    deleteFromMyList,
+    getLikedList,
+    likedListSelector,
+    addToLikedList,
+    deleteFromLikedList,
+} from '~/pages/MyList/myListSlice';
 
 const cx = classNames.bind(styles);
 
@@ -30,6 +48,17 @@ function MoviePopover({ movieInfo, children, onClose }: MoviePopoverProps) {
 
     const navigate = useNavigate();
 
+    const myList = useAppSelector(myListSelector);
+    const likedList = useAppSelector(likedListSelector);
+
+    const handleBannerVideoEnd = () => {
+        setIsBannerVisible(true);
+    };
+
+    const handleViewInfoBtn = () => {
+        dispatch(setViewId(movieInfo.id));
+    };
+
     useEffect(() => {
         const timeOutId = setTimeout(() => {
             setIsBannerVisible(false);
@@ -40,13 +69,10 @@ function MoviePopover({ movieInfo, children, onClose }: MoviePopoverProps) {
         };
     }, []);
 
-    const handleBannerVideoEnd = () => {
-        setIsBannerVisible(true);
-    };
-
-    const handleViewInfoBtn = () => {
-        dispatch(setViewId(movieInfo.id));
-    };
+    useEffect(() => {
+        dispatch(getMyList());
+        dispatch(getLikedList());
+    }, [dispatch]);
 
     return (
         <TippyHeadless
@@ -122,20 +148,73 @@ function MoviePopover({ movieInfo, children, onClose }: MoviePopoverProps) {
                                 <FontAwesomeIcon icon={faPlay} className={cx('play-icon')} />
                             </button>
 
-                            <Tippy
-                                offset={[-1, 24]}
-                                content={<span className={cx('icon-tooltip')}>Add to My List</span>}
-                            >
-                                <button className={cx('button-wrapper')} onClick={(e) => e.stopPropagation()}>
-                                    <FontAwesomeIcon icon={faPlus} className={cx('plus-icon')} />
-                                </button>
-                            </Tippy>
+                            {!myList.includes(movieInfo.id) && (
+                                <Tippy
+                                    offset={[-1, 24]}
+                                    content={<span className={cx('icon-tooltip')}>Add to My List</span>}
+                                >
+                                    <button
+                                        className={cx('button-wrapper')}
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            dispatch(addToMyList(movieInfo.id));
+                                        }}
+                                    >
+                                        <FontAwesomeIcon icon={faPlus} className={cx('plus-icon')} />
+                                    </button>
+                                </Tippy>
+                            )}
 
-                            <Tippy offset={[1, 24]} content={<span className={cx('icon-tooltip')}>I like this</span>}>
-                                <button className={cx('button-wrapper')} onClick={(e) => e.stopPropagation()}>
-                                    <FontAwesomeIcon icon={faThumbsUp} className={cx('like-icon')} />
-                                </button>
-                            </Tippy>
+                            {myList.includes(movieInfo.id) && (
+                                <Tippy
+                                    offset={[-1, 24]}
+                                    content={<span className={cx('icon-tooltip')}>Remove from My List</span>}
+                                >
+                                    <button
+                                        className={cx('button-wrapper')}
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            dispatch(deleteFromMyList(movieInfo.id));
+                                        }}
+                                    >
+                                        <FontAwesomeIcon icon={faCheck} className={cx('plus-icon')} />
+                                    </button>
+                                </Tippy>
+                            )}
+
+                            {!likedList.includes(movieInfo.id) && (
+                                <Tippy
+                                    offset={[1, 24]}
+                                    content={<span className={cx('icon-tooltip')}>I like this</span>}
+                                >
+                                    <button
+                                        className={cx('button-wrapper')}
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            dispatch(addToLikedList(movieInfo.id));
+                                        }}
+                                    >
+                                        <FontAwesomeIcon icon={faThumbsUp} className={cx('like-icon')} />
+                                    </button>
+                                </Tippy>
+                            )}
+
+                            {likedList.includes(movieInfo.id) && (
+                                <Tippy
+                                    offset={[1, 24]}
+                                    content={<span className={cx('icon-tooltip')}>Unlike this</span>}
+                                >
+                                    <button
+                                        className={cx('button-wrapper')}
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            dispatch(deleteFromLikedList(movieInfo.id));
+                                        }}
+                                    >
+                                        <FontAwesomeIcon icon={solidFaThumbsUp} className={cx('like-icon')} />
+                                    </button>
+                                </Tippy>
+                            )}
 
                             <Tippy
                                 offset={[-1, 24]}

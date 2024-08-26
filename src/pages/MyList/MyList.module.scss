@@ -1,0 +1,35 @@
+.wrapper {
+    min-height: 1000px;
+    padding-bottom: 50px;
+    background-color: var(--bg-color);
+}
+
+.container {
+    margin-top: -70px;
+}
+
+.content {
+    padding-top: 70px;
+}
+
+.header {
+    padding: 0 60px;
+    height: 68px;
+    display: flex;
+    align-items: center;
+}
+
+.heading {
+    font-size: 3.2rem;
+    font-weight: 600;
+    color: var(--white);
+}
+
+.my-list {
+    margin-top: 80px;
+    padding: 0 60px;
+}
+
+.list-item {
+    margin-bottom: 60px;
+}

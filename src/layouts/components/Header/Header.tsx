@@ -44,33 +44,13 @@ function Header() {
                     </Link>
                     <ul className={cx('nav-group')}>
                         <li className={cx('nav-item')}>
-                            <Link className={cx('nav-link')} to="">
+                            <Link to={config.routes.home} className={cx('nav-link')}>
                                 Home
                             </Link>
                         </li>
                         <li className={cx('nav-item')}>
-                            <Link className={cx('nav-link')} to="">
-                                TV Shows
-                            </Link>
-                        </li>
-                        <li className={cx('nav-item')}>
-                            <Link className={cx('nav-link')} to="">
-                                Movies
-                            </Link>
-                        </li>
-                        <li className={cx('nav-item')}>
-                            <Link className={cx('nav-link')} to="">
-                                New & Popular
-                            </Link>
-                        </li>
-                        <li className={cx('nav-item')}>
-                            <Link className={cx('nav-link')} to="">
+                            <Link to={config.routes.myList} className={cx('nav-link')}>
                                 My List
-                            </Link>
-                        </li>
-                        <li className={cx('nav-item')}>
-                            <Link className={cx('nav-link')} to="">
-                                Browse by Languages
                             </Link>
                         </li>
                     </ul>
