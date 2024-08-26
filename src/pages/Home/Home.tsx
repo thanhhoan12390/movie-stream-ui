@@ -2,11 +2,13 @@ import classNames from 'classnames/bind';
 import { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleInfo, faPlay, faRotateRight, faVolumeHigh, faVolumeXmark } from '@fortawesome/free-solid-svg-icons';
+import { useAppDispatch } from '~/app/hooks';
 
 import styles from './Home.module.scss';
 import images from '~/assets/images';
 import videos from '~/assets/videos';
 import Carousel from '~/components/Carousel';
+import { setViewId } from './homeSlice';
 
 import { bannerMovieInfo, carouselList } from '~/apiFakeData'; // fake Data
 
@@ -17,15 +19,7 @@ function Home() {
     const [isReplayBtnVisible, setIsReplayBtnVisible] = useState(false);
     const [isMutedAudio, setIsMutedAudio] = useState(true);
 
-    useEffect(() => {
-        const timeOutId = setTimeout(() => {
-            setIsBannerVisible(false);
-        }, 2000);
-
-        return () => {
-            clearTimeout(timeOutId);
-        };
-    }, []);
+    const dispatch = useAppDispatch();
 
     const handleBannerVideoEnd = () => {
         setIsBannerVisible(true);
@@ -37,6 +31,16 @@ function Home() {
         setIsBannerVisible(false);
         setIsReplayBtnVisible(false);
     };
+
+    useEffect(() => {
+        const timeOutId = setTimeout(() => {
+            setIsBannerVisible(false);
+        }, 2000);
+
+        return () => {
+            clearTimeout(timeOutId);
+        };
+    }, []);
 
     return (
         <div className={cx('wrapper')}>
@@ -85,7 +89,10 @@ function Home() {
                                             <FontAwesomeIcon icon={faPlay} className={cx('play-btn-icon')} />
                                             <span>Play</span>
                                         </button>
-                                        <button className={cx('info-more-btn')}>
+                                        <button
+                                            className={cx('info-more-btn')}
+                                            onClick={() => dispatch(setViewId(bannerMovieInfo.id))}
+                                        >
                                             <FontAwesomeIcon icon={faCircleInfo} className={cx('more-btn-icon')} />
                                             <span>More Info</span>
                                         </button>

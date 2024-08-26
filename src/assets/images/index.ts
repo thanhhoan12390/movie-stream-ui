@@ -3,6 +3,7 @@ const images = {
     defaultAvatar: require('~/assets/images/default-avatar.png'),
     bannerImg: require('~/assets/images/banner-img.webp'),
     netflixN: require('~/assets/images/netflix_n.png'),
+    watchMovieImg: require('~/assets/images/watch-movie.png'),
 
     // Carousel Images
     carouselImg1: require('~/assets/images/carouselImg/carousel-img-1.webp'),

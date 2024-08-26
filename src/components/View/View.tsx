@@ -19,7 +19,7 @@ import { removeViewId } from '~/pages/Home/homeSlice';
 import { viewIdSelector } from '~/pages/Home/homeSlice';
 import videos from '~/assets/videos';
 
-import { carouselList, moreLikeList } from '~/apiFakeData'; // fake data
+import { moviesData, moreLikeList } from '~/apiFakeData'; // fake data
 
 const cx = classNames.bind(styles);
 
@@ -32,7 +32,7 @@ function View() {
 
     const viewId = useAppSelector(viewIdSelector);
 
-    const movieInfo = useMemo(() => carouselList.find((movie) => movie.id === viewId), [viewId]);
+    const movieInfo = useMemo(() => moviesData.find((movie) => movie.id === viewId), [viewId]);
 
     const episodeList = useMemo(() => {
         if (!!movieInfo?.episodes) {
@@ -45,6 +45,14 @@ function View() {
         } else return [];
     }, [movieInfo?.episodes]);
 
+    const handleBannerVideoEnd = () => {
+        setIsBannerVisible(true);
+    };
+
+    const handleRemoveViewId = () => {
+        dispatch(removeViewId());
+    };
+
     useEffect(() => {
         const timeOutId = setTimeout(() => {
             setIsBannerVisible(false);
@@ -54,14 +62,6 @@ function View() {
             clearTimeout(timeOutId);
         };
     }, []);
-
-    const handleBannerVideoEnd = () => {
-        setIsBannerVisible(true);
-    };
-
-    const handleRemoveViewId = () => {
-        dispatch(removeViewId());
-    };
 
     return (
         <div className={cx('wrapper')} onClick={handleRemoveViewId}>

@@ -31,10 +31,6 @@ function Carousel({ carouselData, title }: CarouselProps) {
         return result;
     }, [maxSlide]);
 
-    useEffect(() => {
-        setDisableLeftBtn('disable-left-btn');
-    }, []);
-
     const handleLeftBtnClick = () => {
         if (!!carouselRef.current) {
             const scrollWidth = sevenChildRef.current ? sevenChildRef.current.offsetLeft - 60 + 3 : 0;
@@ -71,6 +67,10 @@ function Carousel({ carouselData, title }: CarouselProps) {
             }
         }
     };
+
+    useEffect(() => {
+        setDisableLeftBtn('disable-left-btn');
+    }, []);
 
     return (
         <div className={cx('wrapper')}>
