@@ -4,9 +4,9 @@ import images from '~/assets/images';
 export const moviesData: Array<MovieInformation> = [
     {
         id: 1,
-        name: 'Sailor Moon',
+        name: 'One Piece',
         bgImage: images.bannerImg,
-        description: `One by one, Sailor Moon's friends and loved ones are targeted by a formidable new enemy who threatens to destroy everything and rule over the cosmos`,
+        description: `A new adventure begins for Luffy and his crew when mysterious pop superstar Uta unveils her identity — and launches a misguided plan for world peace.`,
         cast: 'Kotono Mitsuishi, Kenji Nojima, Misato Fukuen',
         genres: ['Action Anime', 'Anime Series', 'Japanese'],
         release: '2024',

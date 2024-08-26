@@ -63,7 +63,7 @@ function Home() {
                                             className={cx('banner-video')}
                                             onEnded={handleBannerVideoEnd}
                                         >
-                                            <source src={videos.bannerVideo} type="video/mp4" />
+                                            <source src={videos.onePieceBanner} type="video/mp4" />
                                         </video>
                                     )}
                                     {/* Banner image */}

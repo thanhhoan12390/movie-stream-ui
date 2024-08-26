@@ -180,7 +180,7 @@ function Watch() {
             if (videoRef.current) {
                 setVideoDuration(formatDuration(videoRef.current.duration));
             }
-        }, 1200);
+        }, 2000);
 
         return () => {
             clearTimeout(timeOutId);
@@ -249,7 +249,7 @@ function Watch() {
                         onTimeUpdate={handleVideoTimeUpdate}
                         onEnded={() => setIsPauseButton(false)}
                     >
-                        <source src={videos.movieTrailer} type="video/mp4" />
+                        <source src={videos.onePieceBanner} type="video/mp4" />
                     </video>
                 )}
 
