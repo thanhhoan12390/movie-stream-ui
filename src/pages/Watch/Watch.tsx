@@ -39,6 +39,7 @@ function Watch() {
     const [isVolumeBarVisible, setIsVolumeBarVisible] = useState(false);
     const [language, setLanguage] = useState<'Vietnamese' | 'English'>('English');
     const [isLanguageModalOpen, setIsLanguageModalOpen] = useState(false);
+    const [isUserActive, setIsUserActive] = useState(false);
 
     const videoRef = useRef<HTMLVideoElement>(null);
     const videoWrapperRef = useRef<HTMLDivElement>(null);
@@ -175,6 +176,23 @@ function Watch() {
         [leadingZeroFormatter],
     );
 
+    // eslint-disable-next-line
+    const handleUserActive = () => {
+        setIsUserActive(true);
+    };
+
+    useEffect(() => {
+        const timeOutId = setTimeout(() => {
+            setIsUserActive(false);
+            document.body.style.cursor = 'none';
+        }, 2000);
+
+        return () => {
+            document.body.style.cursor = 'auto';
+            clearTimeout(timeOutId);
+        };
+    }, [handleUserActive]);
+
     useEffect(() => {
         const timeOutId = setTimeout(() => {
             if (videoRef.current) {
@@ -227,7 +245,9 @@ function Watch() {
                 className={isScrubbing ? cx('movie-wrapper', 'scrubbing') : cx('movie-wrapper')}
                 onMouseMove={(e) => {
                     if (isScrubbing) handleTimelineUpdate(e);
+                    handleUserActive();
                 }}
+                onClick={handleUserActive}
                 onMouseUp={(e) => {
                     if (isScrubbing) toggleScrubbing(e);
                 }}
@@ -253,12 +273,15 @@ function Watch() {
                     </video>
                 )}
 
-                <Link to={config.routes.home} className={cx('back-button-wrapper')}>
+                <Link
+                    to={config.routes.home}
+                    className={isUserActive ? cx('back-button-wrapper') : cx('back-button-wrapper', 'vjs-fade-out')}
+                >
                     <FontAwesomeIcon icon={faArrowLeft} className={cx('back-icon')} />
                 </Link>
 
                 {isHidePreWatchImage && (
-                    <div className={cx('movie-control')}>
+                    <div className={isUserActive ? cx('movie-control') : cx('movie-control', 'vjs-fade-out')}>
                         <h2 className={cx('movie-name')}>{movieInfo?.name} Movie</h2>
 
                         {/* Timeline control */}
@@ -400,7 +423,13 @@ function Watch() {
                     >
                         <ul className={cx('speed-list')}>
                             <li className={cx('speed-heading')}>Speed</li>
-                            <li className={cx('speed-item')} onClick={() => handlePlayBackSpeed(0.5)}>
+                            <li
+                                className={cx('speed-item')}
+                                onClick={() => {
+                                    handlePlayBackSpeed(0.5);
+                                    setIsSpeedModalOpen(false);
+                                }}
+                            >
                                 0.5
                                 <FontAwesomeIcon
                                     icon={faCheck}
@@ -408,7 +437,13 @@ function Watch() {
                                     style={playSpeed === 0.5 ? { display: 'block' } : { display: 'none' }}
                                 />
                             </li>
-                            <li className={cx('speed-item')} onClick={() => handlePlayBackSpeed(0.75)}>
+                            <li
+                                className={cx('speed-item')}
+                                onClick={() => {
+                                    handlePlayBackSpeed(0.75);
+                                    setIsSpeedModalOpen(false);
+                                }}
+                            >
                                 0.75
                                 <FontAwesomeIcon
                                     icon={faCheck}
@@ -416,7 +451,13 @@ function Watch() {
                                     style={playSpeed === 0.75 ? { display: 'block' } : { display: 'none' }}
                                 />
                             </li>
-                            <li className={cx('speed-item')} onClick={() => handlePlayBackSpeed(1)}>
+                            <li
+                                className={cx('speed-item')}
+                                onClick={() => {
+                                    handlePlayBackSpeed(1);
+                                    setIsSpeedModalOpen(false);
+                                }}
+                            >
                                 Normal
                                 <FontAwesomeIcon
                                     icon={faCheck}
@@ -424,7 +465,13 @@ function Watch() {
                                     style={playSpeed === 1 ? { display: 'block' } : { display: 'none' }}
                                 />
                             </li>
-                            <li className={cx('speed-item')} onClick={() => handlePlayBackSpeed(1.25)}>
+                            <li
+                                className={cx('speed-item')}
+                                onClick={() => {
+                                    handlePlayBackSpeed(1.25);
+                                    setIsSpeedModalOpen(false);
+                                }}
+                            >
                                 1.25
                                 <FontAwesomeIcon
                                     icon={faCheck}
@@ -432,7 +479,13 @@ function Watch() {
                                     style={playSpeed === 1.25 ? { display: 'block' } : { display: 'none' }}
                                 />
                             </li>
-                            <li className={cx('speed-item')} onClick={() => handlePlayBackSpeed(1.5)}>
+                            <li
+                                className={cx('speed-item')}
+                                onClick={() => {
+                                    handlePlayBackSpeed(1.5);
+                                    setIsSpeedModalOpen(false);
+                                }}
+                            >
                                 1.5
                                 <FontAwesomeIcon
                                     icon={faCheck}
@@ -453,7 +506,13 @@ function Watch() {
                     >
                         <ul className={cx('language-list')}>
                             <li className={cx('language-heading')}>Languages</li>
-                            <li className={cx('language-item')} onClick={() => setLanguage('English')}>
+                            <li
+                                className={cx('language-item')}
+                                onClick={() => {
+                                    setLanguage('English');
+                                    setIsLanguageModalOpen(false);
+                                }}
+                            >
                                 English
                                 <FontAwesomeIcon
                                     icon={faCheck}
@@ -461,7 +520,13 @@ function Watch() {
                                     style={language === 'English' ? { display: 'block' } : { display: 'none' }}
                                 />
                             </li>
-                            <li className={cx('language-item')} onClick={() => setLanguage('Vietnamese')}>
+                            <li
+                                className={cx('language-item')}
+                                onClick={() => {
+                                    setLanguage('Vietnamese');
+                                    setIsLanguageModalOpen(false);
+                                }}
+                            >
                                 Vietnamese
                                 <FontAwesomeIcon
                                     icon={faCheck}
@@ -470,6 +535,28 @@ function Watch() {
                                 />
                             </li>
                         </ul>
+                    </div>
+                )}
+
+                {/* Overlay */}
+                {isHidePreWatchImage && (
+                    <div
+                        className={
+                            !isPauseButton && !isUserActive
+                                ? cx('movie-overlay', 'overlay-visible')
+                                : cx('movie-overlay')
+                        }
+                    >
+                        <div className={cx('evidence-overlay')}>
+                            <span className={cx('heading')}>You're watching</span>
+                            <h2 className={cx('overlay-name')}>{movieInfo?.name}</h2>
+                            <h3 className={cx('overlay-info')}>
+                                <span>{movieInfo?.release}</span>
+                                <span>T16</span>
+                            </h3>
+                            <p className={cx('overlay-desc')}>{movieInfo?.description}</p>
+                            <span className={cx('overlay-paused')}>Paused</span>
+                        </div>
                     </div>
                 )}
             </div>
