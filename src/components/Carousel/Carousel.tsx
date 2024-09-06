@@ -1,5 +1,5 @@
 import classNames from 'classnames/bind';
-import { Fragment, useEffect, useMemo, useRef, useState } from 'react';
+import { Fragment, useEffect, useMemo, useRef, useState, memo } from 'react';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -21,6 +21,8 @@ function Carousel({ carouselData, title }: CarouselProps) {
 
     const carouselRef = useRef<HTMLDivElement>(null);
     const sevenChildRef = useRef<HTMLDivElement>(null);
+    const rightButtonRef = useRef<HTMLButtonElement>(null);
+    const leftButtonRef = useRef<HTMLButtonElement>(null);
 
     const maxSlide = useMemo(() => Math.ceil(carouselData.length / 6), [carouselData.length]);
 
@@ -33,6 +35,16 @@ function Carousel({ carouselData, title }: CarouselProps) {
 
     const handleLeftBtnClick = () => {
         if (!!carouselRef.current) {
+            if (leftButtonRef.current) {
+                leftButtonRef.current.disabled = true;
+            }
+
+            setTimeout(() => {
+                if (leftButtonRef.current) {
+                    leftButtonRef.current.disabled = false;
+                }
+            }, 1200);
+
             const scrollWidth = sevenChildRef.current ? sevenChildRef.current.offsetLeft - 60 + 3 : 0;
 
             carouselRef.current.scrollLeft -= scrollWidth; // 1405: offsetWidth của thẻ ul
@@ -51,6 +63,16 @@ function Carousel({ carouselData, title }: CarouselProps) {
 
     const handleRightBtnClick = () => {
         if (!!carouselRef.current) {
+            if (rightButtonRef.current) {
+                rightButtonRef.current.disabled = true;
+            }
+
+            setTimeout(() => {
+                if (rightButtonRef.current) {
+                    rightButtonRef.current.disabled = false;
+                }
+            }, 1200);
+
             const scrollWidth = sevenChildRef.current ? sevenChildRef.current.offsetLeft - 60 + 3 : 0;
 
             carouselRef.current.scrollLeft += scrollWidth;
@@ -89,6 +111,7 @@ function Carousel({ carouselData, title }: CarouselProps) {
                 </div>
 
                 <button
+                    ref={leftButtonRef}
                     className={cx('carousel-arrow-left', 'carousel-arrow', disableLeftBtn)}
                     onClick={handleLeftBtnClick}
                 >
@@ -96,6 +119,7 @@ function Carousel({ carouselData, title }: CarouselProps) {
                 </button>
 
                 <button
+                    ref={rightButtonRef}
                     className={cx('carousel-arrow-right', 'carousel-arrow', disableRightBtn)}
                     onClick={handleRightBtnClick}
                 >
@@ -112,4 +136,4 @@ function Carousel({ carouselData, title }: CarouselProps) {
     );
 }
 
-export default Carousel;
+export default memo(Carousel);

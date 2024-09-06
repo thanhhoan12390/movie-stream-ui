@@ -1,6 +1,6 @@
 import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, memo } from 'react';
 
 import styles from './CarouselCard.module.scss';
 import { MovieInformation } from '~/models';
@@ -11,6 +11,7 @@ const cx = classNames.bind(styles);
 interface CarouselCardProps {
     movieInfo: MovieInformation;
 }
+
 function CarouselCard({ movieInfo }: CarouselCardProps) {
     const [isOpenModal, setIsOpenModal] = useState(false);
     const [timeOutIdToClear, setTimeOutIdToClear] = useState<NodeJS.Timeout>();
@@ -42,4 +43,4 @@ function CarouselCard({ movieInfo }: CarouselCardProps) {
     );
 }
 
-export default CarouselCard;
+export default memo(CarouselCard);
