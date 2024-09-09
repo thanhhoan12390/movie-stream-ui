@@ -5,7 +5,7 @@ const images = {
     netflixN: require('~/assets/images/netflix_n.png'),
     watchMovieImg: require('~/assets/images/watch-movie.png'),
 
-    // Carousel Images
+    // Carousel images
     carouselImg1: require('~/assets/images/carouselImg/carousel-img-1.webp'),
     carouselImg2: require('~/assets/images/carouselImg/carousel-img-2.jpg'),
     carouselImg3: require('~/assets/images/carouselImg/carousel-img-3.webp'),
@@ -44,13 +44,25 @@ const images = {
     carouselImg36: require('~/assets/images/carouselImg/carousel-img-36.webp'),
     carouselImg37: require('~/assets/images/carouselImg/carousel-img-37.jpg'),
 
-    // More like this image
+    // More like this images
     moreLikeThisImg1: require('~/assets/images/moreLikeThisImg/more-like-this-img-1.webp'),
     moreLikeThisImg2: require('~/assets/images/moreLikeThisImg/more-like-this-img-2.webp'),
     moreLikeThisImg3: require('~/assets/images/moreLikeThisImg/more-like-this-img-3.webp'),
     moreLikeThisImg4: require('~/assets/images/moreLikeThisImg/more-like-this-img-4.webp'),
     moreLikeThisImg5: require('~/assets/images/moreLikeThisImg/more-like-this-img-5.webp'),
     moreLikeThisImg6: require('~/assets/images/moreLikeThisImg/more-like-this-img-6.webp'),
+
+    // Rank carousel images
+    rankCarouselImg1: require('~/assets/images/rankCarouselImg/rank-carousel-img-1.jpg'),
+    rankCarouselImg2: require('~/assets/images/rankCarouselImg/rank-carousel-img-2.jpg'),
+    rankCarouselImg3: require('~/assets/images/rankCarouselImg/rank-carousel-img-3.jpg'),
+    rankCarouselImg4: require('~/assets/images/rankCarouselImg/rank-carousel-img-4.jpg'),
+    rankCarouselImg5: require('~/assets/images/rankCarouselImg/rank-carousel-img-5.jpg'),
+    rankCarouselImg6: require('~/assets/images/rankCarouselImg/rank-carousel-img-6.jpg'),
+    rankCarouselImg7: require('~/assets/images/rankCarouselImg/rank-carousel-img-7.jpg'),
+    rankCarouselImg8: require('~/assets/images/rankCarouselImg/rank-carousel-img-8.jpg'),
+    rankCarouselImg9: require('~/assets/images/rankCarouselImg/rank-carousel-img-9.webp'),
+    rankCarouselImg10: require('~/assets/images/rankCarouselImg/rank-carousel-img-10.webp'),
 };
 
 export default images;

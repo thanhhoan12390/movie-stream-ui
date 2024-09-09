@@ -9,9 +9,10 @@ import styles from './Home.module.scss';
 import images from '~/assets/images';
 import videos from '~/assets/videos';
 import Carousel from '~/components/Carousel';
+import RankCarousel from '~/components/RankCarousel';
 import { setViewId } from './homeSlice';
 
-import { bannerMovieInfo, carouselList } from '~/apiFakeData'; // fake Data
+import { bannerMovieInfo, carouselList, rankCarouselList } from '~/apiFakeData'; // fake Data
 
 const cx = classNames.bind(styles);
 
@@ -145,7 +146,9 @@ function Home() {
                 {/* Content */}
                 <div className={cx('content')}>
                     <Carousel carouselData={carouselList} title={`Today's Top Picks for You`} />
+                    <RankCarousel carouselData={rankCarouselList} title={'Top 10 TV Shows Today'} />
                     <Carousel carouselData={carouselList} title={`New on Movie Stream`} />
+                    <RankCarousel carouselData={rankCarouselList} title={'Top 10 Movies Today'} />
                     <Carousel carouselData={carouselList} title={`International TV Show`} />
                 </div>
             </div>

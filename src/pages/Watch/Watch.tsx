@@ -101,10 +101,10 @@ function Watch() {
         }
     };
 
-    const handlePlayBackSpeed = (language: number) => {
-        setPlaySpeed(language);
+    const handlePlayBackSpeed = (playSpeed: number) => {
+        setPlaySpeed(playSpeed);
         if (videoRef.current) {
-            videoRef.current.playbackRate = language;
+            videoRef.current.playbackRate = playSpeed;
         }
     };
 
