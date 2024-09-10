@@ -16,12 +16,11 @@ import {
     faVolumeXmark,
 } from '@fortawesome/free-solid-svg-icons';
 import { faClock } from '@fortawesome/free-regular-svg-icons';
-import { Link, useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 import styles from './Watch.module.scss';
 import videos from '~/assets/videos';
 import images from '~/assets/images';
-import config from '~/config';
 
 import { moviesData } from '~/apiFakeData'; // fake data
 
@@ -40,6 +39,8 @@ function Watch() {
     const [language, setLanguage] = useState<'Vietnamese' | 'English'>('English');
     const [isLanguageModalOpen, setIsLanguageModalOpen] = useState(false);
     const [isUserActive, setIsUserActive] = useState(false);
+
+    const navigate = useNavigate();
 
     const videoRef = useRef<HTMLVideoElement>(null);
     const videoWrapperRef = useRef<HTMLDivElement>(null);
@@ -273,12 +274,12 @@ function Watch() {
                     </video>
                 )}
 
-                <Link
-                    to={config.routes.home}
+                <button
+                    onClick={() => navigate(-1)}
                     className={isUserActive ? cx('back-button-wrapper') : cx('back-button-wrapper', 'vjs-fade-out')}
                 >
                     <FontAwesomeIcon icon={faArrowLeft} className={cx('back-icon')} />
-                </Link>
+                </button>
 
                 {isHidePreWatchImage && (
                     <div className={isUserActive ? cx('movie-control') : cx('movie-control', 'vjs-fade-out')}>

@@ -33,6 +33,7 @@
 }
 
 .background-image {
+    object-fit: contain;
     position: absolute;
     top: 0;
     right: 0;
@@ -305,15 +306,17 @@
     position: relative;
 
     img {
+        object-fit: contain;
         border-radius: 4px;
         height: 86px;
+        min-width: 152px;
     }
 }
 
 .episode-button {
     position: absolute;
-    top: 20px;
-    left: 54px;
+    top: 22%;
+    left: 35%;
     height: 46px;
     width: 46px;
     padding: 9px;

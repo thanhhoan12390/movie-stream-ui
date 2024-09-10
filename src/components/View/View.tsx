@@ -21,8 +21,6 @@ import styles from './View.module.scss';
 import { removeViewId } from '~/pages/Home/homeSlice';
 import { viewIdSelector } from '~/pages/Home/homeSlice';
 import videos from '~/assets/videos';
-
-import { moviesData, moreLikeList } from '~/apiFakeData'; // fake data
 import {
     addToLikedList,
     addToMyList,
@@ -33,6 +31,8 @@ import {
     likedListSelector,
     myListSelector,
 } from '~/pages/MyList/myListSlice';
+
+import { moviesData, moreLikeList } from '~/apiFakeData'; // fake data
 
 const cx = classNames.bind(styles);
 
