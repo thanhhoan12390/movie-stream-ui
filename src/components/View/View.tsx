@@ -51,15 +51,11 @@ function View() {
 
     const movieInfo = useMemo(() => moviesData.find((movie) => movie.id === viewId), [viewId]);
     const isInMyList = useMemo(() => {
-        if (movieInfo) {
-            return myList.includes(movieInfo.id);
-        } else return false;
+        return movieInfo ? myList.includes(movieInfo.id) : false;
     }, [movieInfo, myList]);
 
     const isInLikedList = useMemo(() => {
-        if (movieInfo) {
-            return likedList.includes(movieInfo.id);
-        } else return false;
+        return movieInfo ? likedList.includes(movieInfo.id) : false;
     }, [movieInfo, likedList]);
 
     const episodeList = useMemo(() => {

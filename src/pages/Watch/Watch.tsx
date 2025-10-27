@@ -28,7 +28,7 @@ const cx = classNames.bind(styles);
 
 function Watch() {
     const [isHidePreWatchImage, setIsHidePreWatchImage] = useState(false);
-    const [isPauseButton, setIsPauseButton] = useState(false);
+    const [isPauseButton, setIsPauseButton] = useState(true);
     const [isFullScreen, setIsFullScreen] = useState(false);
     const [currentVolume, setCurrentVolume] = useState(1);
     const [playSpeed, setPlaySpeed] = useState(1);
@@ -263,6 +263,7 @@ function Watch() {
                 {/* Video */}
                 {isHidePreWatchImage && (
                     <video
+                        autoPlay
                         ref={videoRef}
                         muted={currentVolume === 0}
                         className={cx('watch-video')}
